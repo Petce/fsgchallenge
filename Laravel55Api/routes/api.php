@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('players/import', 'PlayerController@import');
+//Route::post('players/import', 'PlayerController@import');
+Route::match(['get', 'post'], 'players/import', 'PlayerController@import');
 
 Route::resource('players', 'PlayerController');
